@@ -30,7 +30,7 @@ ENGINE.Asteroid.prototype = {
   hit: function(data) {
 
     this.hp -= data.damage;
-
+    var player = app.game.players[0];
     if (this.hp <= 0) {
 
       if (this.splits) {
@@ -40,6 +40,7 @@ ENGINE.Asteroid.prototype = {
       
       this.collection.remove(this);
       app.playSound("asteroid-crush");
+      player.score++;
     }
 
   },
