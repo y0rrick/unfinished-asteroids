@@ -31,6 +31,7 @@ ENGINE.Bullet.prototype = {
 
       if (entity.team !== this.team) {
         entity.hit(this);
+        app.playSound("asteroid-hit");
         this.collection.remove(this);
       }
 
@@ -56,7 +57,7 @@ ENGINE.Bullet.prototype = {
 
   render: function() {
 
-    app.layer.drawRegion(app.images.spritesheet, this.bullet, this.x - 4, this.y - 4, 1, 1);
+    app.layer.drawRegion(app.images.spritesheet, this.bullet, this.x - 4, this.y - 4, 1);
     
   }
 

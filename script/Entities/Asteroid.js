@@ -33,9 +33,13 @@ ENGINE.Asteroid.prototype = {
 
     if (this.hp <= 0) {
 
-      if (this.splits) this.split();
-
+      if (this.splits) {
+          this.split();
+          app.playSound("asteroid-crush");
+      }
+      
       this.collection.remove(this);
+      app.playSound("asteroid-crush");
     }
 
   },

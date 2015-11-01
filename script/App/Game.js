@@ -1,5 +1,5 @@
 app.game = {
-
+  
   start: function() {
     
     this.entities = new ENGINE.Entities;
@@ -18,7 +18,7 @@ app.game = {
   },
 
   collisionHandler: function(a, b) {
-
+       
   },
 
   spawnAsteroid: function() {
@@ -83,6 +83,7 @@ app.game = {
     switch (e.key) {
       case "space":
         this.players[0].shooting = true;
+        this.sht = app.playSound("shoot", true);
         break;
       case "left":
         this.players[0].left = true;
@@ -100,6 +101,7 @@ app.game = {
     switch (e.key) {
       case "space":
         this.players[0].shooting = false;
+        app.stopSound(this.sht);
         break;
       case "left":
         this.players[0].left = false;
